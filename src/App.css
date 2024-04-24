@@ -1,38 +1,166 @@
-.App {
-  text-align: center;
+*{
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+select {
+  display: block;
+  width: 150px;
+  height: 35px;
+  padding: 5px 28px 5px 10px;
+  font-size: 15px;
+  border-radius: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+select::-ms-expand{
+  display:none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+option {
+  padding: 5px;
+  height: 150px;
+}
+
+.navbar-container {
   display: flex;
   flex-direction: column;
+}
+
+.login-button {
+  width: 100%;
+  display: flex;
+  justify-content: end;
   align-items: center;
+  padding: 20px;
+  min-width: 380px;
+  cursor: pointer;
+}
+
+.nav-section {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  cursor: pointer;
+  margin-bottom: 15px;
+  min-width: 408px;
 }
 
-.App-link {
-  color: #61dafb;
+.menu-area {
+  display: flex;
+  justify-content: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.menu-list {
+  display: flex;
+  list-style-type: none;
+}
+
+.menu-list li {
+  font-weight: 600;
+  padding: 15px;
+  margin-bottom: 30px;
+}
+
+
+.menu-list li::after {
+  content: "";
+  display: block;
+  border-bottom: 3px solid salmon;
+  transform: scaleX(0);  
+  transition: all 0.2s ease-in-out;
+}
+
+.menu-list li:hover::after {
+  transform: scaleX(1);
+}
+
+
+.hamburger-menu {
+  position: absolute;
+  top : 0;
+  left: 0;
+  padding: 30px;
+  font-size: 30px;
+}
+
+.search-box {
+  width: 150px;
+  position: absolute;
+  right: 20px;
+  padding-left: 15px;
+  border-bottom: 2px solid black;
+  font-size: 15px;
+}
+
+.search-icon {
+  position: absolute;
+  top: 2px;
+  left: 0;
+}
+
+.search-box input {
+  border: none;
+  margin-left: 10px;
+}
+
+.search-box input:focus {
+  outline: none;
+}
+
+.product-card {
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.product-img {
+  overflow: hidden;
+}
+
+.product-img img {
+  width: 100%;
+}
+
+.product-img img:hover {
+  transform: scale(1.1);
+}
+
+.product-desc {
+  padding-top: 10px;
+}
+
+.product-detail-desc div {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+
+.slide-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100%;
+  padding: 30px;
+  transform: translateX(-300px);
+  overflow-y: auto;
+  background-color: rgb(253, 251, 251);
+  z-index: 99;
+  transition: all 0.5s;
+}
+
+.show-sidebar {
+  transform: translateX(0);
+}
+
+.slide-menu ul {
+  padding: 0;
+}
+
+.slide-menu li {
+  list-style: none;
+  margin-bottom: 15px;
+}
+
+.slide-menu li img {
+  margin-right: 15px;
+  width: 50px;
+  border-radius: 50%;
 }
