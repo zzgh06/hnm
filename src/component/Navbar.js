@@ -4,9 +4,11 @@ import { faUser } from '@fortawesome/free-regular-svg-icons'
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
+import { useSelector } from 'react-redux';
 
 const Navbar = ({authenticate, setAuthenticate, showSideBar, setShowSideBar}) => {
   const isMediumScreen = useMediaQuery({ maxWidth: 991 });
+  const auth = useSelector(state => state.auth.authenticate)
   const search = (event) => {
     if (event.key === 'Enter') {
       let keyword = event.target.value
@@ -32,8 +34,8 @@ const Navbar = ({authenticate, setAuthenticate, showSideBar, setShowSideBar}) =>
     <nav className='navbar-container'>
       <div className='login-button'>
         <FontAwesomeIcon icon={faUser} />
-        <div onClick={()=>{ authenticate === false ? goToLogin() : logout() }} style={{marginLeft : '10px'}}>
-          {authenticate === true ? '로그아웃' : '로그인'}
+        <div onClick={()=>{goToLogin()}} style={{marginLeft : '10px'}}>
+          {auth === true ? '로그아웃' : '로그인'}
         </div>
       </div>
       <div className='nav-section' onClick={()=>{goToHome()}}>

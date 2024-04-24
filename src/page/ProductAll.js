@@ -4,10 +4,10 @@ import ProductCard from '../component/ProductCard'
 import { Col, Container, Row } from 'react-bootstrap'
 import { useSearchParams } from 'react-router-dom'
 import { productAction } from '../redux/actions/productAction'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 const ProductAll = () => {
-  const [productList, setProductList] = useState([]);
+  const productList = useSelector(state => state.product.productList)
   const [query, setQuery] = useSearchParams();
   let dispatch = useDispatch()
   const getProducts = () => {

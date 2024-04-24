@@ -21,16 +21,15 @@ import SlideMenu from './component/SlideMenu';
 // 6. 로그인을 하면 로그아웃이 보이고 로그아웃을 하면 로그인이 보인다. (authenticate에 따라 ui 변경)
 
 function App() {
-  const [authenticate, setAuthenticate] = useState(false); // true면 로그인이 됨 false 면 로그인 안됨
   const [showSideBar, setShowSideBar] = useState(false)
   return (
     <div>
-      <Navbar authenticate={authenticate} setAuthenticate={setAuthenticate} showSideBar={showSideBar} setShowSideBar={setShowSideBar} />
+      <Navbar />
       <SlideMenu showSideBar={showSideBar} setShowSideBar={setShowSideBar} />
       <Routes>
         <Route path='/' element={<ProductAll />} />
-        <Route path='/login' element={<Login setAuthenticate={setAuthenticate} />} />
-        <Route path='/product/:id' element={<PrivateRoute authenticate={authenticate} />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/product/:id' element={<PrivateRoute />} />
       </Routes>
     </div>
   );
