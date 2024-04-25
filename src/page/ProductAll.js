@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react'
 import ProductCard from '../component/ProductCard'
 import { Col, Container, Row } from 'react-bootstrap'
 import { useSearchParams } from 'react-router-dom'
-import { productAction } from '../redux/actions/productAction'
 import { useDispatch, useSelector } from 'react-redux'
+import { fetchProducts } from '../redux/reducers/productSlice'
 
 const ProductAll = () => {
   const productList = useSelector(state => state.product.productList)
@@ -12,7 +12,7 @@ const ProductAll = () => {
   let dispatch = useDispatch()
   const getProducts = () => {
     let searchQuery = query.get('q') || ""; // || 를 통헤 쿼리가 있을 때, 없을 때 구분
-    dispatch(productAction.getProducts(searchQuery))
+    dispatch(fetchProducts(searchQuery))
   };
 
 
